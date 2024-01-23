@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct MessageCell: View {
+    var contentMessage: String
+    var isCurrentUser: Bool
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(contentMessage)
+            .padding(10)
+            .foregroundStyle(isCurrentUser ? .white : .black)
+            .background(isCurrentUser ? .blue : .green)
+            .clipShape(.rect(cornerRadius: 10))
     }
-}
-
-#Preview {
-    MessageCell()
 }

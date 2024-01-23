@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var fireStoreManager: FireStoreManager
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    
+    let testItem = SaleItem(id: 1, name: "Beispielartikel", description: "Beschreibung", category: "Kategorie", price: 100)
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView{
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            AdView(item: testItem)
+                .tabItem {
+                    Label("Ads", systemImage: "macmini")
+                }
+            PlaceholderView()
+                .tabItem {
+                    Label("Messages", systemImage: "message")
+                }
+            NewAdView()
+                .tabItem {
+                    Label("Insert", systemImage: "circle")
+                }
+
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(FireStoreManager())
 }

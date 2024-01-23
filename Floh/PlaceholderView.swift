@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct PlaceholderView: View {
+    @EnvironmentObject var firestoreManager: FireStoreManager
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("this")
     }
 }
 
 #Preview {
     PlaceholderView()
+        .environmentObject(FireStoreManager())
 }

@@ -1,18 +1,13 @@
-//
-//  Color-Theme.swift
-//  Floh
-//
-//  Created by Abdussamed Sen on 13.01.24.
-//
+
 
 import SwiftUI
 
-struct Color_Theme: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension ShapeStyle where Self == Color {
+    static var darkBackground: Color {
+        Color(red:0.1,green: 0.2,blue:0.1)
     }
-}
-
-#Preview {
-    Color_Theme()
+    
+    static var lightBackground: Color {
+        Color(red:0.4,green: 0.4,blue: 0.2)
+    }
 }

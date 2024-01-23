@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct SearchResultsView: View {
+    let items: [SaleItem]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(items, id: \.id) { item in
+            NavigationLink(destination: AdView(item: item)) {
+                VStack(alignment:.leading) {
+                    Text(item.name)
+                        .font(.headline)
+                    Text("\(item.price) €")
+                        .font(.subheadline)
+                }
+            }
+        }
+        .navigationTitle("Suchergebnisse")
     }
-}
-
-#Preview {
-    SearchResultsView()
 }

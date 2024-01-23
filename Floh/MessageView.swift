@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct MessageView: View {
+    var currentMessage: Message
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(alignment:.bottom, spacing: 10) {
+            if !currentMessage.isCurrentUser {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width:40,height:40, alignment: .center)
+                    .clipShape(.capsule)
+            } else {
+                Spacer()
+            }
+            MessageCell(contentMessage: currentMessage.content, isCurrentUser: currentMessage.isCurrentUser)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
     }
 }
 
 #Preview {
-    MessageView()
+    MessageView(currentMessage: Message(content: "This is a single message cell with avatar. If user is current user, we won't display the avatar.", isCurrentUser: false))
 }

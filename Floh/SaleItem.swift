@@ -13,7 +13,7 @@ struct SaleItem: Codable, Identifiable {
     let description: String
     let category: String
     let price: Int
-    var imageURL: String?
+    var imageURL: String
     
 }
 

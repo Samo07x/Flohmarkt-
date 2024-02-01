@@ -14,11 +14,12 @@ struct AdView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image("placeholder_image") // Beispielbild, ersetzen Sie es durch das tatsächliche Bild des Artikels
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                
+                AsyncImage(url: URL(string: item.imageURL)) { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    ProgressView()
+                }
                 Rectangle()
                     .frame(height: 2)
                     .foregroundStyle(.secondary)
@@ -70,5 +71,5 @@ struct AdView: View {
     }
 }
 #Preview {
-    AdView(item: SaleItem(id: 1, name: "Beispielartikel", description: "Dies ist eine detaillierte Beschreibung des Artikels.", category: "Kategorie", price: 100))
+    AdView(item: SaleItem(id: 1, name: "Beispielartikel", description: "Dies ist eine detaillierte Beschreibung des Artikels.", category: "Kategorie", price: 100, imageURL: "testamk"))
 }

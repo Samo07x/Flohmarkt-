@@ -91,7 +91,7 @@ struct NewAdView: View {
                                            description: description, // Ersetzen Sie dies durch eine tatsächliche Beschreibung
                                            category: selectedCategory,
                                            price: price,
-                                           imageURL: nil) // Hier können Sie 'nil' setzen, da das Bild später hinzugefügt wird
+                                           imageURL: "") // Hier können Sie 'nil' setzen, da das Bild später hinzugefügt wird
 
                 // Überprüfen Sie, ob ein Bild vorhanden ist, und rufen Sie dann createSaleItem auf
                 if let uiImage = avatarUIImage {

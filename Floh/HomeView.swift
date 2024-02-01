@@ -42,8 +42,12 @@ struct HomeView: View {
                                 AdView(item: item)
                             } label: {
                                 VStack{
-                                    
-                                    
+                                    AsyncImage(url: URL(string: item.imageURL)) { image in
+                                        image.resizable()
+                                            .frame(width: 120, height: 70)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                     VStack{
                                         Text(item.name)
                                             .font(.headline)

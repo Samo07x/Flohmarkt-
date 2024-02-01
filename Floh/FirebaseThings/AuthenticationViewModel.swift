@@ -36,6 +36,7 @@ class AuthenticationViewModel: ObservableObject {
     
     
     private func authenticateUser(for user: GIDGoogleUser?, with error: Error?) {
+        let defaults = UserDefaults.standard
         if let error = error {
             print(error.localizedDescription)
             return
@@ -57,6 +58,7 @@ class AuthenticationViewModel: ObservableObject {
               print(error.localizedDescription)
             } else {
               state = .signedIn
+                
             }
           }
     }
